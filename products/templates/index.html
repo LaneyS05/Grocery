@@ -1,8 +1,22 @@
-<h1>Products</h1>
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
-  <li>Item 4</li>
-  <li>Item 5</li>
-</ul>
+{% extends 'base.html' %} {% block content %}
+<h1 class="text-end">Products</h1>
+<div class="row">
+  {% for product in products %}
+  <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card h-100 text-end">
+      <img
+        class="card-img-top img-fluid"
+        src="{{ product.image_url }}"
+        alt="Card image cap"
+      />
+      <div class="card-body h-100">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">${{ product.price }}</p>
+        <a href="#" class="btn btn-primary">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
